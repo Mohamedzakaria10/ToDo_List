@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDO-List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  </head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+        <div class="todo-list py-5 px-5">
+          <h1 class="fw-bold fs-4">Welcome to our ToDo List</h1>
+
+          <input id="nameInput" type="text" placeholder="Enter Your Name">
+          <br>
+          <input id="numberInput" type="number" placeholder="Enter Your Number">
+
+          <button id="saveBtn">Save</button>
+        </div>
+
+        <div class="todo-list-2 p-3">
+          <h1 class="fw-bold fs-4">You Have <span id="userCount">0</span> Users</h1>
+
+          <div id="emptyMsgBox" class="alert text-danger">
+            <p id="emptyMsg">No Users Added Yet</p>
+          </div>
+          <div id="usersContainer"></div></div>
+
+
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+   <script src="test.js"></script>
+</body>
+</html>
