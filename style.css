@@ -7,7 +7,7 @@
 body {
   width: 100%;
   min-height: 100vh;
-  background-image: url(img-2.png);
+  background-image: url(Frame.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -148,4 +148,42 @@ button:active {
   background-color: #cc0000;
   transform: none;
   box-shadow: none;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 20px 15px;
+    gap: 30px;
+  }
+
+  .todo-list,
+  .todo-list-2 {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 25px 15px;
+    border-radius: 25px;
+  }
+
+  .todo-list input {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .todo-list button {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 25px;
+  }
+
+  .user-item {
+    font-size: 14px;
+    padding: 8px 12px;
+    gap: 10px;
+  }
+
+  .user-item .delete-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
 }
