@@ -1,37 +1,52 @@
-let nameInput       = document.getElementById('nameInput')
-let numberInput     = document.getElementById('numberInput')
-let saveBtn         = document.getElementById('saveBtn')
-let usersContainer  = document.getElementById('usersContainer')
-let userCountText   = document.getElementById('userCount')
-let emptyMsg        = document.getElementById('emptyMsg')
-
+let nameInput = document.getElementById("nameInput");
+let numberInput = document.getElementById("numberInput");
+let saveBtn = document.getElementById("saveBtn");
+let usersContainer = document.getElementById("usersContainer");
+let userCountText = document.getElementById("userCount");
+let emptyMsg = document.getElementById("emptyMsg");
 
 let usersList = [];
 
-saveBtn.addEventListener('click' , function(){
-    let nameValue = nameInput.value.trim();
-    let numberValue = numberInput.value.trim();
+saveBtn.addEventListener("click", function () {
+  let nameValue = nameInput.value.trim();
+  let numberValue = numberInput.value.trim();
 
-    if(nameValue === '' || numberValue === ''){
-        alert('Please enter your name and number');
-        return;
-    }
+  if (nameValue === "" || numberValue === "") {
+    alert("Please enter your name and number");
+    return;
+  }
 
-    if(emptyMsgBox){
-        emptyMsgBox.style.display = 'none';
-    }
+  if (emptyMsg) {
+    emptyMsg.style.display = "none";
+  }
 
-    usersList.push({name: nameValue, number: nameValue});
+  let userObject = { name: nameValue, number: numberValue };
+  usersList.push(userObject);
 
-    let userCard = document.createElement('div');
-    userCard.classList.add('user-item');
-    userCard.innerHTML = `<span>${nameValue}</span> <span>${numberValue}</span>`;
+  let userCard = document.createElement("div");
+  userCard.classList.add("user-item");
 
-    usersContainer.appendChild(userCard);
+  userCard.innerHTML = `
+        <span>${nameValue} - ${numberValue}</span>
+        <button class="delete-btn">Delete</button>
+    `;
 
+  let deleteBtn = userCard.querySelector(".delete-btn");
+  deleteBtn.addEventListener("click", function () {
+    userCard.remove();
+
+    usersList = usersList.filter((user) => user !== userObject);
     userCountText.textContent = usersList.length;
 
-    nameInput.value = '';
-    numberInput.value = '';
+    if (usersList.length === 0 && emptyMsg) {
+      emptyMsg.style.display = "flex";
+    }
+  });
+
+  usersContainer.appendChild(userCard);
+
+  userCountText.textContent = usersList.length;
+
+  nameInput.value = "";
+  numberInput.value = "";
 });
- 
